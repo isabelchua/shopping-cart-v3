@@ -5,16 +5,29 @@ import CartContainer from "./components/CartContainer";
 // items
 import cartItems from "./cart-items";
 // redux stuff
+import { createStore } from "redux";
+//reducer
+
+const initialStore = {
+	count: 78
+};
+
+function reducer(state, action) {
+	console.log({ state, action });
+	return state;
+}
+const store = createStore(reducer, initialStore);
+console.log(store.getState());
 
 function App() {
-  // cart setup
+	// cart setup
 
-  return (
-    <main>
-      <Navbar />
-      <CartContainer cart={cartItems} />
-    </main>
-  );
+	return (
+		<main>
+			<Navbar cart={store.getState()} />
+			<CartContainer cart={cartItems} />
+		</main>
+	);
 }
 
 export default App;
