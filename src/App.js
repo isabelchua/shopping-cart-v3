@@ -7,7 +7,7 @@ import cartItems from "./cart-items";
 // redux stuff
 import { createStore } from "redux";
 //reducer
-import { Provider } from "react-redux";
+import { connect, Provider } from "react-redux";
 //import { DECREASE, INCREASE } from "./actions";
 import reducer from "./reducer";
 
