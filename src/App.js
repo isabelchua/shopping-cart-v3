@@ -13,7 +13,7 @@ import reducer from "./reducer";
 
 const initialStore = {
 	cart: cartItems,
-	total: 0,
+	total: 105,
 	amount: 5
 };
 
@@ -32,7 +32,8 @@ function App() {
 		<Provider store={store}>
 			<Navbar />
 			{/* <Navbar cart={store.getState()} /> */}
-			<CartContainer cart={cartItems} />
+			{/* <CartContainer cart={cartItems} /> */}
+			<CartContainer />
 		</Provider>
 	);
 }
