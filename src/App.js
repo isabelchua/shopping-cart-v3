@@ -3,21 +3,15 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import CartContainer from "./components/CartContainer";
 // items
-import cartItems from "./cart-items";
+
 // redux stuff
 import { createStore } from "redux";
 //reducer
-import { connect, Provider } from "react-redux";
+import { Provider } from "react-redux";
 //import { DECREASE, INCREASE } from "./actions";
 import reducer from "./reducer";
 
-const initialStore = {
-	cart: cartItems,
-	total: 105,
-	amount: 5
-};
-
-const store = createStore(reducer, initialStore);
+const store = createStore(reducer);
 // store.dispatch({ type: DECREASE });
 // // store.dispatch({ type: RANDOM });
 // // store.dispatch({ type: CHANGE_NAME });

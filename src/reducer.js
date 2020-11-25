@@ -6,9 +6,16 @@ import {
 	GET_TOTALS,
 	TOGGLE_AMOUNT
 } from "./actions";
+import cartItems from "./cart-items";
+
+const initialStore = {
+	cart: cartItems,
+	total: 0,
+	amount: 0
+};
 
 //
-function reducer(state, action) {
+function reducer(state = initialStore, action) {
 	switch (action.type) {
 		case CLEAR_CART:
 			return { ...state, cart: [] };
@@ -74,7 +81,7 @@ function reducer(state, action) {
 			total = parseFloat(total.toFixed(2));
 			return { ...state, total, amount };
 		case TOGGLE_AMOUNT:
-			console.log(action.payload.toggle);
+			//console.log(action.payload.toggle);
 			return {
 				...state,
 				cart: state.cart.map(cartItem => {
