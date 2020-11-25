@@ -9,7 +9,9 @@ function reducer(state, action) {
 			//console.log("decreased");
 			let tempCart = [];
 			if (action.payload.amount === 1) {
-				console.log("it is 1");
+				tempCart = state.cart.filter(
+					cartItem => cartItem.id !== action.payload.id
+				);
 			} else {
 				tempCart = state.cart.map(cartItem => {
 					if (cartItem.id === action.payload.id) {
