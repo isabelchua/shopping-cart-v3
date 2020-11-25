@@ -44,7 +44,7 @@ const CartItem = ({
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	const { id, amount } = ownProps;
-	console.log(ownProps);
+	//console.log(ownProps);
 	return {
 		remove: () => dispatch({ type: REMOVE, payload: { id } }),
 		increase: () => dispatch({ type: INCREASE, payload: { id } }),
