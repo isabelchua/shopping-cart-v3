@@ -1,4 +1,11 @@
-import { DECREASE, INCREASE, REMOVE, CLEAR_CART, GET_TOTALS } from "./actions";
+import {
+	DECREASE,
+	INCREASE,
+	REMOVE,
+	CLEAR_CART,
+	GET_TOTALS,
+	TOGGLE_AMOUNT
+} from "./actions";
 
 //
 function reducer(state, action) {
@@ -66,6 +73,28 @@ function reducer(state, action) {
 			);
 			total = parseFloat(total.toFixed(2));
 			return { ...state, total, amount };
+		case TOGGLE_AMOUNT:
+			console.log(action.payload.toggle);
+			return {
+				...state,
+				cart: state.cart.map(cartItem => {
+					if (cartItem.id === action.payload.id) {
+						if (action.payload.toggle === "inc") {
+							return (cartItem = {
+								...cartItem,
+								amount: cartItem.amount + 1
+							});
+						}
+						if (action.payload.toggle === "dec") {
+							return (cartItem = {
+								...cartItem,
+								amount: cartItem.amount - 1
+							});
+						}
+					}
+					return cartItem;
+				})
+			};
 
 		default:
 			return state;
