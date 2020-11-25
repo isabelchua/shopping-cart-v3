@@ -6,11 +6,28 @@ function reducer(state, action) {
 		case CLEAR_CART:
 			return { ...state, cart: [] };
 		case DECREASE:
-			console.log("decreased");
-			return state;
+			//console.log("decreased");
+			let tempCart = [];
+			if (action.payload.amount === 1) {
+				console.log("it is 1");
+			} else {
+				tempCart = state.cart.map(cartItem => {
+					if (cartItem.id === action.payload.id) {
+						cartItem = { ...cartItem, amount: cartItem.amount - 1 };
+					}
+					return cartItem;
+				});
+			}
+			return { ...state, cart: tempCart };
 		case INCREASE:
-			console.log("increased");
-			return state;
+			//console.log("increased");
+			let tempCartIn = state.cart.map(cartItem => {
+				if (cartItem.id === action.payload.id) {
+					cartItem = { ...cartItem, amount: cartItem.amount + 1 };
+				}
+				return cartItem;
+			});
+			return { ...state, cart: tempCartIn };
 
 		case REMOVE:
 			console.log(action.payload.id);
