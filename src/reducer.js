@@ -45,7 +45,10 @@ function reducer(state, action) {
 				(cartTotal, cartItem) => {
 					//console.log(cartItem);
 					const { price, amount } = cartItem;
+					const itemTotal = price * amount;
 					cartTotal.amount += amount;
+
+					cartTotal.total += itemTotal;
 					return cartTotal;
 				},
 				{
@@ -53,6 +56,7 @@ function reducer(state, action) {
 					amount: 0
 				}
 			);
+			total = parseFloat(total.toFixed(2));
 			return { ...state, total, amount };
 
 		default:
