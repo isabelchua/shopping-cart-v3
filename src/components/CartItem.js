@@ -1,11 +1,6 @@
 import React from "react";
 import { connect, useDispatch } from "react-redux";
-import {
-	INCREASE,
-	DECREASE,
-	TOGGLE_AMOUNT,
-	removeItem
-} from "../reducers/actions";
+import { INCREASE, DECREASE, TOGGLE_AMOUNT, REMOVE } from "../reducers/actions";
 
 const CartItem = ({
 	id,
@@ -20,7 +15,8 @@ const CartItem = ({
 }) => {
 	const dispatch = useDispatch();
 
-	const removeItem = () => dispatch(removeItem(id));
+	//const removeItem = () => dispatch(removeItem(id));
+	const removeItem = () => dispatch({ type: REMOVE, payload: { id } });
 
 	// const increaseItem = () => dispatch({ type: INCREASE, payload: { id } });
 
