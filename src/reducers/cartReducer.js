@@ -6,7 +6,7 @@ import {
 	GET_TOTALS,
 	TOGGLE_AMOUNT
 } from "./actions";
-import cartItems from "./reducers/cart-items";
+import cartItems from "./cart-items";
 
 const initialStore = {
 	cart: cartItems,
