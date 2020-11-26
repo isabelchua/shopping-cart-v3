@@ -54,7 +54,6 @@ function reducer(state = initialStore, action) {
 			return { ...state, cart: tempCartIn };
 
 		case REMOVE:
-			//console.log(action.payload.id);
 			return {
 				...state,
 				cart: state.cart.filter(
@@ -62,7 +61,6 @@ function reducer(state = initialStore, action) {
 				)
 			};
 		case GET_TOTALS:
-			//console.log("totals");
 			let { total, amount } = state.cart.reduce(
 				(cartTotal, cartItem) => {
 					//console.log(cartItem);
@@ -81,7 +79,6 @@ function reducer(state = initialStore, action) {
 			total = parseFloat(total.toFixed(2));
 			return { ...state, total, amount };
 		case TOGGLE_AMOUNT:
-			//console.log(action.payload.toggle);
 			return {
 				...state,
 				cart: state.cart.map(cartItem => {
