@@ -5,16 +5,12 @@ import CartContainer from "./components/CartContainer";
 // items
 
 // redux stuff
-import { createStore } from "redux";
-//reducer
-import { Provider } from "react-redux";
-//import { DECREASE, INCREASE } from "./actions";
-import reducer from "./reducer";
+//import { createStore } from "redux";
 
-const store = createStore(
-	reducer,
-	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+// const store = createStore(
+// 	reducer,
+// 	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// );
 // store.dispatch({ type: DECREASE });
 // // store.dispatch({ type: RANDOM });
 // // store.dispatch({ type: CHANGE_NAME });
@@ -26,12 +22,12 @@ function App() {
 	// cart setup
 
 	return (
-		<Provider store={store}>
+		<div>
 			<Navbar />
 			{/* <Navbar cart={store.getState()} /> */}
 			{/* <CartContainer cart={cartItems} /> */}
 			<CartContainer />
-		</Provider>
+		</div>
 	);
 }
 

@@ -1,26 +1,33 @@
 export default [
-  {
-    id: 1,
-    title: "Samsung Galaxy S7",
-    price: 599.99,
-    img:
-      "https://res.cloudinary.com/diqqf3eq2/image/upload/v1583368215/phone-2_ohtt5s.png",
-    amount: 1
-  },
-  {
-    id: 2,
-    title: "google pixel ",
-    price: 499.99,
-    img:
-      "https://res.cloudinary.com/diqqf3eq2/image/upload/v1583371867/phone-1_gvesln.png",
-    amount: 1
-  },
-  {
-    id: 3,
-    title: "Xiaomi Redmi Note 2",
-    price: 699.99,
-    img:
-      "https://res.cloudinary.com/diqqf3eq2/image/upload/v1583368224/phone-3_h2s6fo.png",
-    amount: 1
-  }
+	{
+		id: 1,
+		title: "PS5 ex",
+		price: 499,
+		img: "https://happymag.tv/wp-content/uploads/2020/03/PS5.jpg",
+		amount: 1
+	},
+	{
+		id: 2,
+		title: "PS5",
+		price: 499,
+		img:
+			"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6426/6426149_sd.jpg",
+		amount: 1
+	},
+	{
+		id: 4,
+		title: "Microsoft Xbox Series X 1TB",
+		price: 499,
+		img:
+			"https://www.techinn.com/f/13777/137776929/microsoft-xbox-series-x-1tb.jpg",
+		amount: 1
+	},
+	{
+		id: 3,
+		title: "Nintendo Switch",
+		price: 299,
+		img:
+			"https://media.wired.com/photos/5d8a8931875aae000911ae62/1:1/w_1800,h_1800,c_limit/Gear-NintendoSwitchLite_artwork_05.jpg",
+		amount: 1
+	}
 ];

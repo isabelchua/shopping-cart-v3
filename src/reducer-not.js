@@ -5,14 +5,16 @@ import {
 	CLEAR_CART,
 	GET_TOTALS,
 	TOGGLE_AMOUNT
-} from "./actions";
+} from "./reducers/actions";
 import cartItems from "./reducers/cart-items";
 
-const initialStore = {
-	cart: cartItems,
-	total: 0,
-	amount: 0
-};
+const initialStore = [
+	{
+		cart: cartItems,
+		total: 0,
+		amount: 0
+	}
+];
 
 //
 function reducer(state = initialStore, action) {

@@ -15,7 +15,7 @@ const initialStore = {
 };
 
 //
-function reducer(state = initialStore, action) {
+function cartReducer(state = initialStore, action) {
 	switch (action.type) {
 		case CLEAR_CART:
 			return { ...state, cart: [] };
@@ -105,7 +105,7 @@ function reducer(state = initialStore, action) {
 	}
 }
 
-export default reducer;
+export default cartReducer;
 
 // if (action.type === CLEAR_CART) {
 // 	return { ...state, cart: [] };

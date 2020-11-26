@@ -1,8 +1,14 @@
 import React from "react";
-import { connect } from "react-redux";
-import { INCREASE, DECREASE, TOGGLE_AMOUNT, removeItem } from "../actions";
+import { connect, useDispatch } from "react-redux";
+import {
+	INCREASE,
+	DECREASE,
+	TOGGLE_AMOUNT,
+	removeItem
+} from "../reducers/actions";
 
 const CartItem = ({
+	id,
 	img,
 	title,
 	price,
@@ -12,6 +18,18 @@ const CartItem = ({
 	decrease,
 	toggle
 }) => {
+	const dispatch = useDispatch();
+
+	const removeItem = () => dispatch(removeItem(id));
+
+	// const increaseItem = () => dispatch({ type: INCREASE, payload: { id } });
+
+	// const decreaseItem = () =>
+	// 	dispatch({ type: DECREASE, payload: { id, amount } });
+
+	const toggleItem = toggle =>
+		dispatch({ type: TOGGLE_AMOUNT, payload: { id, toggle } });
+
 	return (
 		<div className="cart-item">
 			<img src={img} alt={title} />
@@ -19,13 +37,13 @@ const CartItem = ({
 				<h4>{title}</h4>
 				<h4 className="item-price">${price}</h4>
 				{/* remove button */}
-				<button className="remove-btn" onClick={() => remove()}>
+				<button className="remove-btn" onClick={() => removeItem()}>
 					remove
 				</button>
 			</div>
 			<div>
 				{/* increase amount */}
-				<button className="amount-btn" onClick={() => toggle("inc")}>
+				<button className="amount-btn" onClick={() => toggleItem("inc")}>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
 						<path d="M10.707 7.05L10 6.343 4.343 12l1.414 1.414L10 9.172l4.243 4.242L15.657 12z" />
 					</svg>
@@ -39,7 +57,7 @@ const CartItem = ({
 						if (amount === 1) {
 							return remove();
 						} else {
-							toggle("dec");
+							toggleItem("dec");
 						}
 					}}
 				>
@@ -52,16 +70,18 @@ const CartItem = ({
 	);
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-	const { id, amount } = ownProps;
-	//console.log(ownProps);
-	return {
-		remove: () => dispatch(removeItem(id)),
-		increase: () => dispatch({ type: INCREASE, payload: { id } }),
-		decrease: () => dispatch({ type: DECREASE, payload: { id, amount } }),
-		toggle: toggle =>
-			dispatch({ type: TOGGLE_AMOUNT, payload: { id, toggle } })
-	};
-};
+export default CartItem;
 
-export default connect(null, mapDispatchToProps)(CartItem);
+// const mapDispatchToProps = (dispatch, ownProps) => {
+// 	const { id, amount } = ownProps;
+// 	//console.log(ownProps);
+// 	return {
+// 		remove: () => dispatch(removeItem(id)),
+// 		increase: () => dispatch({ type: INCREASE, payload: { id } }),
+// 		decrease: () => dispatch({ type: DECREASE, payload: { id, amount } }),
+// 		toggle: toggle =>
+// 			dispatch({ type: TOGGLE_AMOUNT, payload: { id, toggle } })
+// 	};
+// };
+
+// export default connect(null, mapDispatchToProps)(CartItem);
