@@ -14,7 +14,7 @@ const CartContainer = () => {
 
 	//console.log(cart);
 
-	if (cart.length === 0) {
+	if (cart.cart.length === 0) {
 		return (
 			<section className="cart">
 				{/* cart header */}

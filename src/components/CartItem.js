@@ -51,7 +51,7 @@ const CartItem = ({
 					className="amount-btn"
 					onClick={() => {
 						if (amount === 1) {
-							return remove();
+							return removeItem();
 						} else {
 							toggleItem("dec");
 						}
